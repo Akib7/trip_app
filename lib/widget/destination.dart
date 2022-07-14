@@ -34,7 +34,8 @@ class DestinationBar extends StatelessWidget {
               const Text('From'),
               Text(
                 place,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               )
             ],
           )
