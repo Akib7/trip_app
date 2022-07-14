@@ -15,15 +15,18 @@ class DriverContainer extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Container(
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-                color: app_color, borderRadius: BorderRadius.circular(50.0)),
-            child: Icon(
-              icon,
-              color: Colors.white,
-              size: 40,
+          child: GestureDetector(
+            onTap: () {},
+            child: Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                  color: app_color, borderRadius: BorderRadius.circular(50.0)),
+              child: Icon(
+                icon,
+                color: Colors.white,
+                size: 40,
+              ),
             ),
           ),
         ),

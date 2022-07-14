@@ -5,6 +5,7 @@ import 'package:trip_app/widget/amount.dart';
 
 import 'widget/destination.dart';
 import 'widget/driverContainer.dart';
+import 'widget/last_buttons.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -287,6 +288,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
+                ),
+                const LastButtons(),
+                const SizedBox(
+                  height: 10,
                 ),
               ],
             ),

@@ -11,7 +11,7 @@ class DestinationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 7),
+      padding: const EdgeInsets.only(left: 17.49, right: 19.93),
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
           color: Colors.grey.withOpacity(0.3), //New
