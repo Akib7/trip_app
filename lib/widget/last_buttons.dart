@@ -36,7 +36,7 @@ class LastButtons extends StatelessWidget {
             onPressed: () {},
             style: ElevatedButton.styleFrom(
               primary: app_color,
-              padding: EdgeInsets.symmetric(horizontal: 78.w, vertical: 22.h),
+              padding: EdgeInsets.symmetric(horizontal: 75.w, vertical: 22.h),
               textStyle: TextStyle(fontSize: 15.sp),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0.r),
