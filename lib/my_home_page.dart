@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trip_app/constants.dart';
+import 'package:trip_app/widget/amount.dart';
 
 import 'widget/destination.dart';
 import 'widget/driverContainer.dart';
@@ -14,9 +15,25 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-TextEditingController inputController = TextEditingController();
+TextEditingController hourController = TextEditingController();
+TextEditingController minuteController = TextEditingController();
 
 class _MyHomePageState extends State<MyHomePage> {
+  TimeOfDay selectedTime = TimeOfDay.now();
+
+  _selectTime(BuildContext context) async {
+    final TimeOfDay? timeOfDay = await showTimePicker(
+      context: context,
+      initialTime: selectedTime,
+      initialEntryMode: TimePickerEntryMode.input,
+    );
+    if (timeOfDay != null && timeOfDay != selectedTime) {
+      setState(() {
+        selectedTime = timeOfDay;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
+              children: [
                 const SizedBox(
                   height: 22,
                 ),
@@ -168,47 +185,109 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                             ),
-                            Row(
-                              children: const [
-                                SizedBox(
-                                  width: 55,
-                                  height: 40,
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                    ),
-                                  ),
+                            ElevatedButton(
+                              onPressed: () {
+                                _selectTime(context);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                primary: app_color,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 30, vertical: 10),
+                                textStyle: const TextStyle(fontSize: 15),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(7.0)),
+                                minimumSize: const Size(190, 15),
+                              ),
+                              child: const Text(
+                                "Choose Time",
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  ":",
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                SizedBox(
-                                  width: 55,
-                                  height: 40,
-                                  child: TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
+                            Text("${selectedTime.hour}:${selectedTime.minute}"),
+
+                            // Row(
+                            //   children: const [
+                            //     SizedBox(
+                            //       width: 55,
+                            //       height: 40,
+                            //       child: TextField(
+                            //         keyboardType: TextInputType.number,
+                            //         decoration: InputDecoration(
+                            //           border: OutlineInputBorder(),
+                            //         ),
+                            //       ),
+                            //     ),
+                            //     SizedBox(
+                            //       width: 5,
+                            //     ),
+                            //     Text(
+                            //       ":",
+                            //       style: TextStyle(
+                            //         fontSize: 20,
+                            //         fontWeight: FontWeight.bold,
+                            //       ),
+                            //     ),
+                            //     SizedBox(
+                            //       width: 5,
+                            //     ),
+                            //     SizedBox(
+                            //       width: 55,
+                            //       height: 40,
+                            //       child: TextField(
+                            //         keyboardType: TextInputType.number,
+                            //         decoration: InputDecoration(
+                            //           border: OutlineInputBorder(),
+                            //         ),
+                            //       ),
+                            //     ),
+                            //     SizedBox(
+                            //       width: 15,
+                            //     ),
+
+                            //   ],
+                            // ),
                           ],
                         ),
                       ],
                     ),
                   ),
-                )
+                ),
+                const Amount(),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 22, vertical: 5),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 15),
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.3), //New
+                            blurRadius: 5.0,
+                          )
+                        ],
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(7.0)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            'This is For Some Notes Writting Related to\nTrip Details or Activities or Other Tasks',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.grey.shade400,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ],
