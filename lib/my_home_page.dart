@@ -6,6 +6,7 @@ import 'package:trip_app/widget/amount.dart';
 import 'widget/destination.dart';
 import 'widget/driverContainer.dart';
 import 'widget/last_buttons.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -53,13 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 22,
+                SizedBox(
+                  height: 22.h,
                 ),
-                const Text(
+                Text(
                   'AP35 AA 77111',
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 22.sp,
                     color: app_color,
                     fontWeight: FontWeight.w900,
                   ),
@@ -69,40 +70,42 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: ElevatedButton.styleFrom(
                     primary: app_color,
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
                     textStyle: const TextStyle(fontSize: 15),
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(7.0)),
-                    minimumSize: const Size(160, 10),
+                        borderRadius: BorderRadius.circular(7.0.r)),
+                    minimumSize: Size(160.w, 10.h),
                   ),
                   child: const Text('Change'),
                 ),
-                const SizedBox(
-                  height: 22,
+                SizedBox(
+                  height: 22.h,
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 22, vertical: 5),
-                  child: DestinationBar(
-                    icon: CupertinoIcons.placemark,
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
+                  child: const DestinationBar(
+                    icon: CupertinoIcons.multiply,
                     place: 'Istanbul, Turkey',
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 22, vertical: 5),
-                  child: DestinationBar(
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
+                  child: const DestinationBar(
                     icon: CupertinoIcons.placemark,
                     place: 'Tokyo, Japan',
                   ),
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 22, vertical: 5),
+                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 22),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 22.h),
                     decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -111,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           )
                         ],
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(7.0)),
+                        borderRadius: BorderRadius.circular(7.0.r)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
@@ -129,58 +132,59 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 22, vertical: 5),
+                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
                   child: Container(
                     padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.h),
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.3), //New
-                          blurRadius: 5.0,
+                          blurRadius: 5.0.r,
                         )
                       ],
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(7.0),
+                      borderRadius: BorderRadius.circular(7.0.r),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text('Select Time & Date'),
+                          children: [
+                            const Text('Select Time & Date'),
                             Text(
                               'Plan Your Trip',
                               style: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.bold),
+                                  fontSize: 18.sp, fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
-                        const SizedBox(
-                          width: 25,
-                          height: 40,
+                        SizedBox(
+                          width: 25.w,
+                          height: 40.h,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 10),
+                              padding: EdgeInsets.only(bottom: 10.h),
                               child: ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
                                   primary: app_color,
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 30, vertical: 10),
-                                  textStyle: const TextStyle(fontSize: 15),
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 30.w, vertical: 10.h),
+                                  textStyle: TextStyle(fontSize: 15.sp),
                                   shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(7.0)),
-                                  minimumSize: const Size(190, 15),
+                                    borderRadius: BorderRadius.circular(7.0.r),
+                                  ),
+                                  minimumSize: Size(150.w, 15.h),
                                 ),
-                                child: const Text(
+                                child: Text(
                                   'Select Date',
                                   style: TextStyle(
-                                    fontSize: 17,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -192,17 +196,18 @@ class _MyHomePageState extends State<MyHomePage> {
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: app_color,
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 30, vertical: 10),
-                                textStyle: const TextStyle(fontSize: 15),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 30.w, vertical: 10.h),
+                                textStyle: TextStyle(fontSize: 15.sp),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(7.0)),
-                                minimumSize: const Size(190, 15),
+                                  borderRadius: BorderRadius.circular(7.0.r),
+                                ),
+                                minimumSize: Size(150.w, 15.h),
                               ),
-                              child: const Text(
+                              child: Text(
                                 "Choose Time",
                                 style: TextStyle(
-                                  fontSize: 17,
+                                  fontSize: 17.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -259,28 +264,29 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Amount(),
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 22, vertical: 5),
+                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
                   child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 15),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
                     decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3), //New
-                            blurRadius: 5.0,
-                          )
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(7.0)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3), //New
+                          blurRadius: 5.0.r,
+                        )
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(7.0.r),
+                    ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      padding: EdgeInsets.symmetric(horizontal: 10.0.w),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
                             'This is For Some Notes Writting Related to\nTrip Details or Activities or Other Tasks',
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 15.sp,
                               color: Colors.grey.shade400,
                             ),
                           ),
@@ -290,8 +296,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 const LastButtons(),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
               ],
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DriverContainer extends StatelessWidget {
   final IconData icon;
@@ -14,14 +15,16 @@ class DriverContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0.h),
           child: GestureDetector(
             onTap: () {},
             child: Container(
-              height: 100,
-              width: 100,
+              height: 90.h,
+              width: 90.w,
               decoration: BoxDecoration(
-                  color: app_color, borderRadius: BorderRadius.circular(50.0)),
+                color: app_color,
+                borderRadius: BorderRadius.circular(50.0.r),
+              ),
               child: Icon(
                 icon,
                 color: Colors.white,
@@ -30,21 +33,22 @@ class DriverContainer extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: 10.h,
         ),
         Container(
-          height: 32,
-          width: 160,
+          height: 35.h,
+          width: 140.w,
           decoration: BoxDecoration(
-              color: Colors.grey.shade200,
-              borderRadius: BorderRadius.circular(7.0)),
+            color: Colors.grey.shade200,
+            borderRadius: BorderRadius.circular(7.0.r),
+          ),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 8.0.h),
             child: Text(
               text,
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 color: Colors.grey.shade400,
               ),
             ),

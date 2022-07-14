@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Amount extends StatelessWidget {
   const Amount({Key? key}) : super(key: key);
@@ -6,31 +7,35 @@ class Amount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3), //New
-            blurRadius: 5.0,
-          )
-        ], color: Colors.white, borderRadius: BorderRadius.circular(7.0)),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.3), //New
+              blurRadius: 5.0.r,
+            )
+          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(7.0.r),
+        ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: EdgeInsets.symmetric(horizontal: 10.0.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
                 'Amount',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 '250.000',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                 ),
               ),
