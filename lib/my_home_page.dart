@@ -7,6 +7,7 @@ import 'widget/destination.dart';
 import 'widget/driverContainer.dart';
 import 'widget/last_buttons.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -22,6 +23,7 @@ TextEditingController minuteController = TextEditingController();
 
 class _MyHomePageState extends State<MyHomePage> {
   TimeOfDay selectedTime = TimeOfDay.now();
+  DateTime now = DateTime.now();
 
   _selectTime(BuildContext context) async {
     final TimeOfDay? timeOfDay = await showTimePicker(
@@ -36,8 +38,73 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  void datePicker() {
+    showCupertinoModalPopup(
+        context: context,
+        builder: (BuildContext builder) {
+          return CupertinoPopupSurface(
+            isSurfacePainted: true,
+            child: Container(
+              alignment: Alignment.center,
+              color: Colors.grey.shade300,
+              height: 200.h,
+              child: SizedBox(
+                height: 200.h,
+                child: CupertinoDatePicker(
+                    initialDateTime: now,
+                    onDateTimeChanged: (dateTime) {
+                      print(dateTime);
+                      setState(() {
+                        now = dateTime;
+                      });
+                    }),
+              ),
+            ),
+          );
+        });
+  }
+
+  // void datePicker() {
+  //    showCupertinoModalPopup(
+  //     context: context,
+  //     builder: (BuildContext builder) {
+  //      child: CupertinoPopupSurface(
+  //       isSurfacePainted: true,
+  //       child: Container(
+  //           alignment: Alignment.center,
+  //           width: MediaQuery.of(context).size.width,
+  //           height: MediaQuery.of(context).copyWith().size.height * 0.35,
+  //           child: const Material(child: Text("This is a popup surface"))),
+  //        );
+  //     }
+  //    );
+
+  // return CupertinoPopupSurface(
+  //   child: Container(
+  //     alignment: Alignment.center,
+  //     color: Colors.grey.shade300,
+  //     height: 200.h,
+  //     child: SizedBox(
+  //       height: 200.h,
+  //       child: CupertinoDatePicker(
+  //           initialDateTime: now,
+  //           onDateTimeChanged: (dateTime) {
+  //             print(dateTime);
+  //             setState(() {
+  //               now = dateTime;
+  //             });
+  //           }),
+  //     ),
+  //   ),
+  // );
+  // }
+
   @override
   Widget build(BuildContext context) {
+    var formattedDate = DateFormat('dd-MMM-yyyy').format(now);
+    var formattedTime = DateFormat.jm().format(now);
+    var properDateAndTime = ('$formattedDate $formattedTime');
+    // print(properDateAndTime);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -152,9 +219,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Select Time & Date'),
+                            const Text('Select Date & Time'),
                             Text(
-                              'Plan Your Trip',
+                              'Trip Date',
                               style: TextStyle(
                                   fontSize: 18.sp, fontWeight: FontWeight.bold),
                             )
@@ -167,32 +234,21 @@ class _MyHomePageState extends State<MyHomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsets.only(bottom: 10.h),
-                              child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  primary: app_color,
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 30.w, vertical: 10.h),
-                                  textStyle: TextStyle(fontSize: 15.sp),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(7.0.r),
-                                  ),
-                                  minimumSize: Size(150.w, 15.h),
-                                ),
+                            Container(
+                              height: 36.h,
+                              width: 178.w,
+                              color: Colors.grey.shade300,
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
                                 child: Text(
-                                  'Select Date',
-                                  style: TextStyle(
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  properDateAndTime,
+                                  style: TextStyle(fontSize: 22.sp),
                                 ),
                               ),
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                _selectTime(context);
+                                datePicker();
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: app_color,
@@ -205,14 +261,36 @@ class _MyHomePageState extends State<MyHomePage> {
                                 minimumSize: Size(150.w, 15.h),
                               ),
                               child: Text(
-                                "Choose Time",
+                                'Change Date & Time',
                                 style: TextStyle(
                                   fontSize: 17.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-                            Text("${selectedTime.hour}:${selectedTime.minute}"),
+                            // ElevatedButton(
+                            //   onPressed: () {
+                            //     _selectTime(context);
+                            //   },
+                            //   style: ElevatedButton.styleFrom(
+                            //     primary: app_color,
+                            //     padding: EdgeInsets.symmetric(
+                            //         horizontal: 30.w, vertical: 10.h),
+                            //     textStyle: TextStyle(fontSize: 15.sp),
+                            //     shape: RoundedRectangleBorder(
+                            //       borderRadius: BorderRadius.circular(7.0.r),
+                            //     ),
+                            //     minimumSize: Size(150.w, 15.h),
+                            //   ),
+                            //   child: Text(
+                            //     "Choose Time",
+                            //     style: TextStyle(
+                            //       fontSize: 17.sp,
+                            //       fontWeight: FontWeight.bold,
+                            //     ),
+                            //   ),
+                            // ),
+                            // Text("${selectedTime.hour}:${selectedTime.minute}"),
 
                             // Row(
                             //   children: const [
