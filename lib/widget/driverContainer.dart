@@ -5,14 +5,9 @@ import '../constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DriverContainer extends StatelessWidget {
-  final IconData icon;
   final String text;
   final AssetImage imageType;
-  const DriverContainer(
-      {Key? key,
-      required this.icon,
-      required this.text,
-      required this.imageType})
+  const DriverContainer({Key? key, required this.text, required this.imageType})
       : super(key: key);
 
   @override
@@ -32,8 +27,8 @@ class DriverContainer extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50.0.r),
               ),
               child: Image(
-                height: 30,
-                width: 30,
+                height: 27.h,
+                width: 27.w,
                 image: imageType,
               ),
             ),

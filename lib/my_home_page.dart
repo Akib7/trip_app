@@ -116,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     textStyle: TextStyle(fontSize: 15.sp),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7.0.r)),
-                    minimumSize: Size(160.w, 5.h),
+                    minimumSize: Size(160.w, 1.h),
                   ),
                   child: const Text('Change'),
                 ),
@@ -162,10 +162,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             color: app_color,
                             borderRadius: BorderRadius.circular(20.0.r),
                           ),
-                          child: const Icon(
-                            CupertinoIcons.arrow_up_arrow_down,
-                            color: Colors.white,
-                            size: 30.0,
+                          child: Image(
+                            height: 10.h,
+                            width: 10.w,
+                            image: const AssetImage('images/up_down.png'),
                           ),
                         ),
                       ),
@@ -192,12 +192,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
                         DriverContainer(
-                          icon: Icons.drive_eta,
                           text: 'Sample Driver, T',
                           imageType: AssetImage('images/driver.jpg'),
                         ),
                         DriverContainer(
-                          icon: Icons.cleaning_services,
                           text: 'Sample Cleaner, T',
                           imageType: AssetImage('images/cleaner.jpg'),
                         ),
@@ -243,7 +241,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(top: 10.0.h),
+                              padding:
+                                  EdgeInsets.only(top: 10.0.h, bottom: 10.0.h),
                               child: Container(
                                 height: 36.h,
                                 width: 155.w,
@@ -262,28 +261,50 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ),
                               ),
                             ),
-                            ElevatedButton(
-                              onPressed: () {
-                                showDialog();
-                              },
-                              style: ElevatedButton.styleFrom(
-                                primary: app_color,
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 14.w, vertical: 8.h),
-                                textStyle: TextStyle(fontSize: 12.sp),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(7.0.r),
-                                ),
-                                minimumSize: Size(130.w, 1.h),
+                            Container(
+                              height: 36.h,
+                              width: 155.w,
+                              decoration: BoxDecoration(
+                                color: app_color,
+                                borderRadius: BorderRadius.circular(7.0.r),
                               ),
-                              child: Text(
-                                'Change Date & Time',
-                                style: TextStyle(
-                                  fontSize: 15.sp,
-                                  fontWeight: FontWeight.bold,
+                              child: TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  'Change Date & Time',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
+                            SizedBox(
+                              height: 7.h,
+                            ),
+                            // ElevatedButton(
+                            //   onPressed: () {
+                            //     showDialog();
+                            //   },
+                            //   style: ElevatedButton.styleFrom(
+                            //     primary: app_color,
+                            //     padding: EdgeInsets.symmetric(
+                            //         horizontal: 14.w, vertical: 8.h),
+                            //     textStyle: TextStyle(fontSize: 12.sp),
+                            //     shape: RoundedRectangleBorder(
+                            //       borderRadius: BorderRadius.circular(7.0.r),
+                            //     ),
+                            //     minimumSize: Size(130.w, 1.h),
+                            //   ),
+                            //   child: Text(
+                            //     'Change Date & Time',
+                            //     style: TextStyle(
+                            //       fontSize: 15.sp,
+                            //       fontWeight: FontWeight.bold,
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ],

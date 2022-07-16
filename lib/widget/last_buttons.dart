@@ -22,10 +22,10 @@ class LastButtons extends StatelessWidget {
                 color: const Color.fromRGBO(255, 86, 86, 1),
                 borderRadius: BorderRadius.circular(10.0.r),
               ),
-              child: const Icon(
-                CupertinoIcons.arrow_left_square,
-                color: Colors.white,
-                size: 30.0,
+              child: Image(
+                height: 30.h,
+                width: 30.w,
+                image: const AssetImage('images/rightButton.jpg'),
               ),
             ),
           ),
@@ -34,25 +34,44 @@ class LastButtons extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.only(right: 21.w),
-            child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: app_color,
-                padding: EdgeInsets.symmetric(horizontal: 57.w, vertical: 22.h),
-                textStyle: TextStyle(fontSize: 15.sp),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0.r),
-                ),
-                minimumSize: Size(140.w, 10.h),
+            child: Container(
+              height: 60.h,
+              width: 220.w,
+              decoration: BoxDecoration(
+                color: app_color,
+                borderRadius: BorderRadius.circular(10.0.r),
               ),
-              child: Text(
-                'Create New Trip',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.sp,
+              child: TextButton(
+                onPressed: () {},
+                child: Text(
+                  'Create New Trip',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.sp,
+                  ),
                 ),
               ),
             ),
+            // ElevatedButton(
+            //   onPressed: () {},
+            //   style: ElevatedButton.styleFrom(
+            //     primary: app_color,
+            //     padding: EdgeInsets.symmetric(horizontal: 57.w, vertical: 22.h),
+            //     textStyle: TextStyle(fontSize: 15.sp),
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(10.0.r),
+            //     ),
+            //     minimumSize: Size(140.w, 10.h),
+            //   ),
+            //   child: Text(
+            //     'Create New Trip',
+            //     style: TextStyle(
+            //       fontWeight: FontWeight.bold,
+            //       fontSize: 16.sp,
+            //     ),
+            //   ),
+            // ),
           ),
         ],
       ),
