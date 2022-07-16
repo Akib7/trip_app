@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:trip_app/constants.dart';
 import 'package:trip_app/widget/amount.dart';
 
@@ -25,79 +26,43 @@ class _MyHomePageState extends State<MyHomePage> {
   TimeOfDay selectedTime = TimeOfDay.now();
   DateTime now = DateTime.now();
 
-  _selectTime(BuildContext context) async {
-    final TimeOfDay? timeOfDay = await showTimePicker(
-      context: context,
-      initialTime: selectedTime,
-      initialEntryMode: TimePickerEntryMode.input,
-    );
-    if (timeOfDay != null && timeOfDay != selectedTime) {
-      setState(() {
-        selectedTime = timeOfDay;
-      });
-    }
-  }
-
-  void datePicker() {
-    showCupertinoModalPopup(
-        context: context,
-        builder: (BuildContext builder) {
-          return CupertinoPopupSurface(
-            isSurfacePainted: true,
-            child: Container(
-              alignment: Alignment.center,
-              color: Colors.grey.shade300,
+  showDialog() {
+    Get.defaultDialog(
+      title: 'Change Date and Time',
+      backgroundColor: Colors.white,
+      titleStyle: const TextStyle(color: Colors.black),
+      textConfirm: "Save",
+      onConfirm: () {
+        Get.back();
+      },
+      // textCancel: "Cancel",
+      // cancelTextColor: Colors.white,
+      // confirmTextColor: Colors.white,
+      buttonColor: app_color,
+      barrierDismissible: false,
+      radius: 20,
+      content: Column(
+        children: [
+          Container(
+            alignment: Alignment.center,
+            color: Colors.grey.shade300,
+            height: 200.h,
+            child: SizedBox(
               height: 200.h,
-              child: SizedBox(
-                height: 200.h,
-                child: CupertinoDatePicker(
-                    initialDateTime: now,
-                    onDateTimeChanged: (dateTime) {
-                      print(dateTime);
-                      setState(() {
-                        now = dateTime;
-                      });
-                    }),
-              ),
+              child: CupertinoDatePicker(
+                  initialDateTime: now,
+                  onDateTimeChanged: (dateTime) {
+                    print(dateTime);
+                    setState(() {
+                      now = dateTime;
+                    });
+                  }),
             ),
-          );
-        });
+          ),
+        ],
+      ),
+    );
   }
-
-  // void datePicker() {
-  //    showCupertinoModalPopup(
-  //     context: context,
-  //     builder: (BuildContext builder) {
-  //      child: CupertinoPopupSurface(
-  //       isSurfacePainted: true,
-  //       child: Container(
-  //           alignment: Alignment.center,
-  //           width: MediaQuery.of(context).size.width,
-  //           height: MediaQuery.of(context).copyWith().size.height * 0.35,
-  //           child: const Material(child: Text("This is a popup surface"))),
-  //        );
-  //     }
-  //    );
-
-  // return CupertinoPopupSurface(
-  //   child: Container(
-  //     alignment: Alignment.center,
-  //     color: Colors.grey.shade300,
-  //     height: 200.h,
-  //     child: SizedBox(
-  //       height: 200.h,
-  //       child: CupertinoDatePicker(
-  //           initialDateTime: now,
-  //           onDateTimeChanged: (dateTime) {
-  //             print(dateTime);
-  //             setState(() {
-  //               now = dateTime;
-  //             });
-  //           }),
-  //     ),
-  //   ),
-  // );
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -248,7 +213,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                datePicker();
+                                showDialog();
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: app_color,
