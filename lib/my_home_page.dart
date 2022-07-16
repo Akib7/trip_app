@@ -69,8 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var formattedDate = DateFormat('dd-MMM-yyyy').format(now);
     var formattedTime = DateFormat.jm().format(now);
-    var properDateAndTime = ('$formattedDate $formattedTime');
-    // print(properDateAndTime);
+    var formattedDay = DateFormat('EEEE').format(now);
+    var properDateAndTime = ('$formattedDay, $formattedDate $formattedTime');
+    // print(formattedDay);
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
         child: Row(
@@ -225,57 +226,77 @@ class _MyHomePageState extends State<MyHomePage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Select Date & Time'),
-                            Text(
-                              'Trip Date',
-                              style: TextStyle(
-                                  fontSize: 16.sp, fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          width: 25.w,
-                          height: 50.h,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: 8.0.h),
+                              child: Text(
+                                'Trip Date & Time',
+                                style: TextStyle(fontSize: 16.sp),
+                              ),
+                            ),
                             Padding(
                               padding:
                                   EdgeInsets.only(top: 10.0.h, bottom: 10.0.h),
-                              child: Container(
-                                height: 36.h,
-                                width: 155.w,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.shade300,
-                                  borderRadius: BorderRadius.circular(7.0.r),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(4.5),
-                                  child: Center(
-                                    child: Text(
-                                      properDateAndTime,
-                                      style: TextStyle(fontSize: 18.sp),
-                                    ),
+                              child: Center(
+                                child: Text(
+                                  properDateAndTime,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: app_color,
+                                    fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
                             ),
-                            Container(
-                              height: 36.h,
-                              width: 155.w,
-                              decoration: BoxDecoration(
-                                color: app_color,
-                                borderRadius: BorderRadius.circular(7.0.r),
-                              ),
-                              child: TextButton(
-                                onPressed: () {},
-                                child: Text(
-                                  'Change Date & Time',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15.sp,
-                                    fontWeight: FontWeight.bold,
+                          ],
+                        ),
+                        SizedBox(
+                          width: 11.w,
+                          height: 45.h,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // Padding(
+                            //   padding:
+                            //       EdgeInsets.only(top: 10.0.h, bottom: 10.0.h),
+                            //   child: Container(
+                            //     height: 36.h,
+                            //     width: 155.w,
+                            //     decoration: BoxDecoration(
+                            //       color: Colors.grey.shade300,
+                            //       borderRadius: BorderRadius.circular(7.0.r),
+                            //     ),
+                            //     child: Padding(
+                            //       padding: const EdgeInsets.all(4.5),
+                            //       child: Center(
+                            //         child: Text(
+                            //           properDateAndTime,
+                            //           style: TextStyle(fontSize: 18.sp),
+                            //         ),
+                            //       ),
+                            //     ),
+                            //   ),
+                            // ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 8.0.h),
+                              child: Container(
+                                height: 40.h,
+                                width: 94.w,
+                                decoration: BoxDecoration(
+                                  color: app_color,
+                                  borderRadius: BorderRadius.circular(7.0.r),
+                                ),
+                                child: TextButton(
+                                  onPressed: () {
+                                    showDialog();
+                                  },
+                                  child: Text(
+                                    'Change Date',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
