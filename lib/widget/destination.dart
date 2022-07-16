@@ -6,13 +6,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class DestinationBar extends StatelessWidget {
   final String place;
   final IconData icon;
-  const DestinationBar({Key? key, required this.place, required this.icon})
+  final String text;
+  const DestinationBar(
+      {Key? key, required this.place, required this.icon, required this.text})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 17.49.w, right: 19.93.h),
+      padding: EdgeInsets.only(left: 5.w, right: 5.w),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -36,10 +38,13 @@ class DestinationBar extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('From'),
+              Text(
+                text,
+                style: TextStyle(fontSize: 12.sp),
+              ),
               Text(
                 place,
-                style: TextStyle(fontSize: 22.sp, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
               )
             ],
           )

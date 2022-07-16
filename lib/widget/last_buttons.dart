@@ -10,7 +10,7 @@ class LastButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 15.h),
+      padding: EdgeInsets.only(left: 17.w, right: 21.w, top: 8.h, bottom: 8.h),
       child: Row(
         children: [
           GestureDetector(
@@ -32,22 +32,25 @@ class LastButtons extends StatelessWidget {
           SizedBox(
             width: 7.w,
           ),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              primary: app_color,
-              padding: EdgeInsets.symmetric(horizontal: 75.w, vertical: 22.h),
-              textStyle: TextStyle(fontSize: 15.sp),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0.r),
+          Padding(
+            padding: EdgeInsets.only(right: 21.w),
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: app_color,
+                padding: EdgeInsets.symmetric(horizontal: 57.w, vertical: 22.h),
+                textStyle: TextStyle(fontSize: 15.sp),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0.r),
+                ),
+                minimumSize: Size(140.w, 10.h),
               ),
-              minimumSize: Size(160.w, 10.h),
-            ),
-            child: Text(
-              'Create New Trip',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16.sp,
+              child: Text(
+                'Create New Trip',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.sp,
+                ),
               ),
             ),
           ),

@@ -7,7 +7,7 @@ class Amount extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
+      padding: EdgeInsets.only(left: 17.w, right: 21.w, top: 5.h, bottom: 5.h),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
         decoration: BoxDecoration(

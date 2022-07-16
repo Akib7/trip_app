@@ -40,15 +40,16 @@ class _MyHomePageState extends State<MyHomePage> {
       // confirmTextColor: Colors.white,
       buttonColor: app_color,
       barrierDismissible: false,
-      radius: 20,
+      radius: 20.r,
       content: Column(
         children: [
           Container(
             alignment: Alignment.center,
             color: Colors.grey.shade300,
             height: 200.h,
+            width: MediaQuery.of(context).size.width.w,
             child: SizedBox(
-              height: 200.h,
+              height: MediaQuery.of(context).size.height.h,
               child: CupertinoDatePicker(
                   initialDateTime: now,
                   onDateTimeChanged: (dateTime) {
@@ -71,7 +72,16 @@ class _MyHomePageState extends State<MyHomePage> {
     var properDateAndTime = ('$formattedDate $formattedTime');
     // print(properDateAndTime);
     return Scaffold(
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: const [
+            LastButtons(),
+          ],
+        ),
+      ),
       appBar: AppBar(
+        // Colors.grey.withOpacity(0.3),
+        elevation: 0.7,
         backgroundColor: Colors.white,
         title: const Center(
           child: Text(
@@ -87,10 +97,10 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 22.h,
+                  height: 10.h,
                 ),
                 Text(
-                  'AP35 AA 77111',
+                  'AP35 AA 7711',
                   style: TextStyle(
                     fontSize: 22.sp,
                     color: app_color,
@@ -103,68 +113,81 @@ class _MyHomePageState extends State<MyHomePage> {
                     primary: app_color,
                     padding:
                         EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
-                    textStyle: const TextStyle(fontSize: 15),
+                    textStyle: TextStyle(fontSize: 15.sp),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7.0.r)),
-                    minimumSize: Size(160.w, 10.h),
+                    minimumSize: Size(160.w, 5.h),
                   ),
                   child: const Text('Change'),
                 ),
                 SizedBox(
-                  height: 22.h,
+                  height: 4.h,
+                ),
+                Stack(
+                  children: [
+                    Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: 17.w, right: 21.w, bottom: 0.5.h),
+                          child: const DestinationBar(
+                            icon: CupertinoIcons.multiply,
+                            place: 'Istanbul, Turkey',
+                            text: 'Going From',
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: 17.w, right: 21.w, bottom: 6.h),
+                          child: const DestinationBar(
+                            icon: CupertinoIcons.placemark,
+                            place: 'Tokyo, Japan',
+                            text: 'Going To',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
                 Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
-                  child: const DestinationBar(
-                    icon: CupertinoIcons.multiply,
-                    place: 'Istanbul, Turkey',
-                  ),
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
-                  child: const DestinationBar(
-                    icon: CupertinoIcons.placemark,
-                    place: 'Tokyo, Japan',
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
+                  padding: EdgeInsets.only(
+                      left: 17.w, right: 21.w, top: 2.5.h, bottom: 2.5.h),
                   child: Container(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 22.h),
+                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
                     decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3), //New
-                            blurRadius: 5.0,
-                          )
-                        ],
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(7.0.r)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3), //New
+                          blurRadius: 5.0,
+                        )
+                      ],
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(7.0.r),
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [
                         DriverContainer(
                           icon: Icons.drive_eta,
                           text: 'Sample Driver, T',
+                          imageType: AssetImage('images/driver.jpg'),
                         ),
                         DriverContainer(
                           icon: Icons.cleaning_services,
                           text: 'Sample Cleaner, T',
+                          imageType: AssetImage('images/cleaner.jpg'),
                         ),
                       ],
                     ),
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
+                  padding: EdgeInsets.only(
+                      left: 17.w, right: 21.w, top: 8.5.h, bottom: 2.5.h),
                   child: Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.h),
@@ -188,26 +211,34 @@ class _MyHomePageState extends State<MyHomePage> {
                             Text(
                               'Trip Date',
                               style: TextStyle(
-                                  fontSize: 18.sp, fontWeight: FontWeight.bold),
+                                  fontSize: 16.sp, fontWeight: FontWeight.bold),
                             )
                           ],
                         ),
                         SizedBox(
                           width: 25.w,
-                          height: 40.h,
+                          height: 50.h,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              height: 36.h,
-                              width: 178.w,
-                              color: Colors.grey.shade300,
-                              child: Padding(
-                                padding: const EdgeInsets.all(4.0),
-                                child: Text(
-                                  properDateAndTime,
-                                  style: TextStyle(fontSize: 22.sp),
+                            Padding(
+                              padding: EdgeInsets.only(top: 10.0.h),
+                              child: Container(
+                                height: 36.h,
+                                width: 155.w,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.shade300,
+                                  borderRadius: BorderRadius.circular(7.0.r),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(4.5),
+                                  child: Center(
+                                    child: Text(
+                                      properDateAndTime,
+                                      style: TextStyle(fontSize: 18.sp),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -218,86 +249,21 @@ class _MyHomePageState extends State<MyHomePage> {
                               style: ElevatedButton.styleFrom(
                                 primary: app_color,
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: 30.w, vertical: 10.h),
-                                textStyle: TextStyle(fontSize: 15.sp),
+                                    horizontal: 14.w, vertical: 8.h),
+                                textStyle: TextStyle(fontSize: 12.sp),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(7.0.r),
                                 ),
-                                minimumSize: Size(150.w, 15.h),
+                                minimumSize: Size(130.w, 1.h),
                               ),
                               child: Text(
                                 'Change Date & Time',
                                 style: TextStyle(
-                                  fontSize: 17.sp,
+                                  fontSize: 15.sp,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-                            // ElevatedButton(
-                            //   onPressed: () {
-                            //     _selectTime(context);
-                            //   },
-                            //   style: ElevatedButton.styleFrom(
-                            //     primary: app_color,
-                            //     padding: EdgeInsets.symmetric(
-                            //         horizontal: 30.w, vertical: 10.h),
-                            //     textStyle: TextStyle(fontSize: 15.sp),
-                            //     shape: RoundedRectangleBorder(
-                            //       borderRadius: BorderRadius.circular(7.0.r),
-                            //     ),
-                            //     minimumSize: Size(150.w, 15.h),
-                            //   ),
-                            //   child: Text(
-                            //     "Choose Time",
-                            //     style: TextStyle(
-                            //       fontSize: 17.sp,
-                            //       fontWeight: FontWeight.bold,
-                            //     ),
-                            //   ),
-                            // ),
-                            // Text("${selectedTime.hour}:${selectedTime.minute}"),
-
-                            // Row(
-                            //   children: const [
-                            //     SizedBox(
-                            //       width: 55,
-                            //       height: 40,
-                            //       child: TextField(
-                            //         keyboardType: TextInputType.number,
-                            //         decoration: InputDecoration(
-                            //           border: OutlineInputBorder(),
-                            //         ),
-                            //       ),
-                            //     ),
-                            //     SizedBox(
-                            //       width: 5,
-                            //     ),
-                            //     Text(
-                            //       ":",
-                            //       style: TextStyle(
-                            //         fontSize: 20,
-                            //         fontWeight: FontWeight.bold,
-                            //       ),
-                            //     ),
-                            //     SizedBox(
-                            //       width: 5,
-                            //     ),
-                            //     SizedBox(
-                            //       width: 55,
-                            //       height: 40,
-                            //       child: TextField(
-                            //         keyboardType: TextInputType.number,
-                            //         decoration: InputDecoration(
-                            //           border: OutlineInputBorder(),
-                            //         ),
-                            //       ),
-                            //     ),
-                            //     SizedBox(
-                            //       width: 15,
-                            //     ),
-
-                            //   ],
-                            // ),
                           ],
                         ),
                       ],
@@ -306,8 +272,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 const Amount(),
                 Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 22.w, vertical: 5.h),
+                  padding: EdgeInsets.only(
+                      left: 17.w, right: 21.w, top: 2.5.h, bottom: 2.5.h),
                   child: Container(
                     padding:
                         EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
@@ -338,7 +304,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                const LastButtons(),
                 SizedBox(
                   height: 10.h,
                 ),
