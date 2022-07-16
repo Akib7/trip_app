@@ -32,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.white,
       titleStyle: const TextStyle(color: Colors.black),
       textConfirm: "Save",
+      confirmTextColor: Colors.white,
       onConfirm: () {
         Get.back();
       },
@@ -40,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // confirmTextColor: Colors.white,
       buttonColor: app_color,
       barrierDismissible: false,
-      radius: 20.r,
+
       content: Column(
         children: [
           Container(
@@ -50,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
             width: MediaQuery.of(context).size.width.w,
             child: SizedBox(
               height: MediaQuery.of(context).size.height.h,
+              width: MediaQuery.of(context).size.width.w,
               child: CupertinoDatePicker(
                   initialDateTime: now,
                   onDateTimeChanged: (dateTime) {
@@ -69,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var formattedDate = DateFormat('dd-MMM-yyyy').format(now);
     var formattedTime = DateFormat.jm().format(now);
-    var formattedDay = DateFormat('EEEE').format(now);
+    var formattedDay = DateFormat('EEE').format(now);
     var properDateAndTime = ('$formattedDay, $formattedDate $formattedTime');
     // print(formattedDay);
     return Scaffold(
@@ -113,11 +115,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: ElevatedButton.styleFrom(
                     primary: app_color,
                     padding:
-                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                     textStyle: TextStyle(fontSize: 15.sp),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7.0.r)),
-                    minimumSize: Size(160.w, 1.h),
+                    minimumSize: Size(135.w, 1.h),
                   ),
                   child: const Text('Change'),
                 ),
@@ -209,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       left: 17.w, right: 21.w, top: 8.5.h, bottom: 2.5.h),
                   child: Container(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.h),
+                        EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -234,14 +236,12 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsets.only(top: 10.0.h, bottom: 10.0.h),
+                              padding: EdgeInsets.only(bottom: 10.0.h),
                               child: Center(
                                 child: Text(
                                   properDateAndTime,
                                   style: TextStyle(
                                     fontSize: 18.sp,
-                                    color: app_color,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -250,38 +250,17 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                         SizedBox(
-                          width: 11.w,
-                          height: 45.h,
+                          width: 4.w,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            // Padding(
-                            //   padding:
-                            //       EdgeInsets.only(top: 10.0.h, bottom: 10.0.h),
-                            //   child: Container(
-                            //     height: 36.h,
-                            //     width: 155.w,
-                            //     decoration: BoxDecoration(
-                            //       color: Colors.grey.shade300,
-                            //       borderRadius: BorderRadius.circular(7.0.r),
-                            //     ),
-                            //     child: Padding(
-                            //       padding: const EdgeInsets.all(4.5),
-                            //       child: Center(
-                            //         child: Text(
-                            //           properDateAndTime,
-                            //           style: TextStyle(fontSize: 18.sp),
-                            //         ),
-                            //       ),
-                            //     ),
-                            //   ),
-                            // ),
                             Padding(
-                              padding: EdgeInsets.only(top: 8.0.h),
+                              padding:
+                                  EdgeInsets.only(top: 8.0.h, left: 10.0.w),
                               child: Container(
-                                height: 40.h,
-                                width: 94.w,
+                                height: 37.h,
+                                width: 87.w,
                                 decoration: BoxDecoration(
                                   color: app_color,
                                   borderRadius: BorderRadius.circular(7.0.r),
@@ -294,7 +273,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     'Change Date',
                                     style: TextStyle(
                                       color: Colors.white,
-                                      fontSize: 15.sp,
+                                      fontSize: 11.sp,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
@@ -304,68 +283,55 @@ class _MyHomePageState extends State<MyHomePage> {
                             SizedBox(
                               height: 7.h,
                             ),
-                            // ElevatedButton(
-                            //   onPressed: () {
-                            //     showDialog();
-                            //   },
-                            //   style: ElevatedButton.styleFrom(
-                            //     primary: app_color,
-                            //     padding: EdgeInsets.symmetric(
-                            //         horizontal: 14.w, vertical: 8.h),
-                            //     textStyle: TextStyle(fontSize: 12.sp),
-                            //     shape: RoundedRectangleBorder(
-                            //       borderRadius: BorderRadius.circular(7.0.r),
-                            //     ),
-                            //     minimumSize: Size(130.w, 1.h),
-                            //   ),
-                            //   child: Text(
-                            //     'Change Date & Time',
-                            //     style: TextStyle(
-                            //       fontSize: 15.sp,
-                            //       fontWeight: FontWeight.bold,
-                            //     ),
-                            //   ),
-                            // ),
                           ],
                         ),
                       ],
                     ),
                   ),
                 ),
-                const Amount(),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: 17.w, right: 21.w, top: 2.5.h, bottom: 2.5.h),
-                  child: Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3), //New
-                          blurRadius: 5.0.r,
-                        )
-                      ],
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(7.0.r),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10.0.w),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'This is For Some Notes Writting Related to\nTrip Details or Activities or Other Tasks',
-                            style: TextStyle(
-                              fontSize: 15.sp,
-                              color: Colors.grey.shade400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                const Amount(
+                  text: 'Amount',
+                  horizontal: 12.0,
+                  vertical: 15.0,
                 ),
+                const Amount(
+                  text: 'Notepad',
+                  horizontal: 12.0,
+                  vertical: 28.0,
+                ),
+                // Padding(
+                //   padding: EdgeInsets.only(
+                //       left: 17.w, right: 21.w, top: 2.5.h, bottom: 2.5.h),
+                //   child: Container(
+                //     padding:
+                //         EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
+                //     decoration: BoxDecoration(
+                //       boxShadow: [
+                //         BoxShadow(
+                //           color: Colors.grey.withOpacity(0.3), //New
+                //           blurRadius: 5.0.r,
+                //         )
+                //       ],
+                //       color: Colors.white,
+                //       borderRadius: BorderRadius.circular(7.0.r),
+                //     ),
+                //     child: Padding(
+                //       padding: EdgeInsets.symmetric(horizontal: 10.0.w),
+                //       child: Row(
+                //         mainAxisAlignment: MainAxisAlignment.start,
+                //         children: [
+                //           Text(
+                //             'This is For Some Notes Writting Related to\nTrip Details or Activities or Other Tasks',
+                //             style: TextStyle(
+                //               fontSize: 15.sp,
+                //               color: Colors.grey.shade400,
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 SizedBox(
                   height: 10.h,
                 ),

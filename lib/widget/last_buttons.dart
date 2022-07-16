@@ -16,7 +16,7 @@ class LastButtons extends StatelessWidget {
           GestureDetector(
             onTap: () {},
             child: Container(
-              height: 60.h,
+              height: 47.h,
               width: 70.w,
               decoration: BoxDecoration(
                 color: const Color.fromRGBO(255, 86, 86, 1),
@@ -30,48 +30,26 @@ class LastButtons extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 7.w,
+            width: 8.w,
           ),
-          Padding(
-            padding: EdgeInsets.only(right: 21.w),
-            child: Container(
-              height: 60.h,
-              width: 220.w,
-              decoration: BoxDecoration(
-                color: app_color,
-                borderRadius: BorderRadius.circular(10.0.r),
-              ),
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'Create New Trip',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16.sp,
-                  ),
+          Container(
+            height: 47.h,
+            width: 252.w,
+            decoration: BoxDecoration(
+              color: app_color,
+              borderRadius: BorderRadius.circular(10.0.r),
+            ),
+            child: TextButton(
+              onPressed: () {},
+              child: Text(
+                'Create New Trip',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.sp,
                 ),
               ),
             ),
-            // ElevatedButton(
-            //   onPressed: () {},
-            //   style: ElevatedButton.styleFrom(
-            //     primary: app_color,
-            //     padding: EdgeInsets.symmetric(horizontal: 57.w, vertical: 22.h),
-            //     textStyle: TextStyle(fontSize: 15.sp),
-            //     shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(10.0.r),
-            //     ),
-            //     minimumSize: Size(140.w, 10.h),
-            //   ),
-            //   child: Text(
-            //     'Create New Trip',
-            //     style: TextStyle(
-            //       fontWeight: FontWeight.bold,
-            //       fontSize: 16.sp,
-            //     ),
-            //   ),
-            // ),
           ),
         ],
       ),
