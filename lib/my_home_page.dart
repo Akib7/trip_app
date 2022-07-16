@@ -150,6 +150,26 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                     ),
+                    Positioned(
+                      right: 40.w,
+                      top: 30.h,
+                      child: GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          height: 60.h,
+                          width: 40.w,
+                          decoration: BoxDecoration(
+                            color: app_color,
+                            borderRadius: BorderRadius.circular(20.0.r),
+                          ),
+                          child: const Icon(
+                            CupertinoIcons.arrow_up_arrow_down,
+                            color: Colors.white,
+                            size: 30.0,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
                 Padding(

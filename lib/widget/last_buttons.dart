@@ -16,8 +16,8 @@ class LastButtons extends StatelessWidget {
           GestureDetector(
             onTap: () {},
             child: Container(
-              height: 55,
-              width: 80,
+              height: 60.h,
+              width: 70.w,
               decoration: BoxDecoration(
                 color: const Color.fromRGBO(255, 86, 86, 1),
                 borderRadius: BorderRadius.circular(10.0.r),
