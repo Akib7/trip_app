@@ -1,6 +1,6 @@
 # trip_app
 
-A new Flutter project.
+A Flutter Trip App UI
 
 ## Getting Started
 
