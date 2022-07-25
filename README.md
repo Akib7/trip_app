@@ -1,6 +1,6 @@
 # trip_app
 
-A Flutter Trip App UI which will giver user the information about trips that they are trying to plan.
+A Flutter Trip App UI which will give user the information about trips that they are trying to plan. 
 
 
 ## Getting Started
